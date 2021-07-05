@@ -1,11 +1,16 @@
+const Task = require('../models/schema');
 
 
-const getAllTask = (req,res) =>{
-    res.send("get request");
+
+const getAllTask = async (req,res) =>{
+    const task = await Task.find();
+    res.status(200).json(task);
 }
 
-const createTask = (req,res) =>{
-    res.send("post req");
+const createTask = async (req,res) =>{
+    const task = await Task.create(req.body);
+    res.status(201).json({task});
+    
 }
 
 const getTask = (req,res) =>{
