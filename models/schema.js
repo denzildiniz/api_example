@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const firstSchema = new mongoose.Schema({
     name :{
         type:String,
-        require:true
+        required:[true,"must provide a name"],
+        trim:true,
+        maxlength:[20,"name cannot be more then 20 characters"]
     },
     intrested:{
         type:Boolean,
-        require:true
+        default:false
     }
 })
 
